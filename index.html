@@ -30,10 +30,12 @@
             <div class="flex-1 relative -top-16 bg-white w-11/12 mx-auto md:w-1/2 backdrop-blur-md">
                 <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl">
                     <label class="label text-black font-bold">Mobile Number</label>
-                    <input type="email" class="input md:w-full" placeholder="Enter your number" />
+                    <input type="email" class="input md:w-full" id="input-number"
+                     placeholder="Enter your number" />
                     <label class="label text-black font-bold">4 Digit Pin</label>
-                    <input type="password" class="input md:w-full" placeholder="Enter 4 Digit Pin" />
-                    <button class="btn btn-neutral mt-4 bg-blue-500 font-extrabold text-xl border-none rounded-2xl">Login</button>
+                    <input type="password" class="input md:w-full" id="input-pin"
+                     placeholder="Enter 4 Digit Pin" />
+                    <button class="btn btn-neutral mt-4 bg-blue-500 font-extrabold text-xl border-none rounded-2xl" id="login-btn">Login</button>
             </div>
         </section>
     </header>
@@ -41,10 +43,11 @@
 
     </main>
 
-    <body>
+    <footer>
 
-    </body>
-
+    </footer>
+    <script src="./js/login.js"></script>
+    <script src="./js/utilitys.js"></script>
 </body>
 
 </html>
