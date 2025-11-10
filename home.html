@@ -207,7 +207,7 @@
             <div>
                 <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl ">
                     <label class="label  font-bold">Select A Bank</label>
-                    <select class="select appearance-none md:w-full rounded-xl">
+                    <select class="select appearance-none md:w-full rounded-xl" id="select-bank-add-money-form">
                         <option disabled selected>Select back</option>
                         <option>AB Bank</option>
                         <option>Dutch Bangla Bank</option>
@@ -215,13 +215,13 @@
                     </select>
 
                     <label class="label  font-bold">Bank Account Number</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-number-add-money-form"
                         placeholder="Enter 11 digit account number" />
                     <label class="label  font-bold">Amount to Add</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-amount-add-money-form"
                         placeholder="Add Amount to withdraw" />
                     <label class="label  font-bold">Pin Number</label>
-                    <input type="password" class="input md:w-full rounded-xl" id="input-pin"
+                    <input type="password" class="input md:w-full rounded-xl" id="input-pin-add-money-form"
                         placeholder="Enter 4 digit pin number" />
                     <button class="btn btn-neutral mt-4 bg-blue-500 font-extrabold  border-none rounded-2xl"
                         id="Add-Money-from-btn">Add Money</button>
@@ -240,16 +240,16 @@
                 <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl ">
 
                     <label class="label  font-bold">Agent Number</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-number-cash-out-form"
                         placeholder="Enter 11 digit number" />
                     <label class="label  font-bold">Amount</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-amount-cash-out-form"
                         placeholder="Enter amount to withdraw" />
                     <label class="label  font-bold">Pin Number</label>
-                    <input type="password" class="input md:w-full rounded-xl" id="input-pin"
+                    <input type="password" class="input md:w-full rounded-xl" id="input-pin-cash-out-form"
                         placeholder="Enter 4 digit pin number" />
                     <button class="btn btn-neutral mt-4 bg-blue-500 font-extrabold  border-none rounded-2xl"
-                        id="Add-Money-from-btn">Withdraw Money</button>
+                        id="withdraw-cash-out-from-btn">Withdraw Money</button>
                 </fieldset>
             </div>
         </section>
@@ -264,16 +264,16 @@
                 <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl ">
 
                     <label class="label  font-bold">User Account Number</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-number-transfer-money-form"
                         placeholder="Enter 11 digit number" />
                     <label class="label  font-bold">Amount</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-amount-transfer-money-form"
                         placeholder="Enter amount to transfer" />
                     <label class="label  font-bold">Pin Number</label>
-                    <input type="password" class="input md:w-full rounded-xl" id="input-pin"
+                    <input type="password" class="input md:w-full rounded-xl" id="input-pin-transfer-money-form"
                         placeholder="Enter 4 digit pin number" />
                     <button class="btn btn-neutral mt-4 bg-blue-500 font-extrabold  border-none rounded-2xl"
-                        id="Add-Money-from-btn">Send Now</button>
+                        id="sent-Money-from-btn">Send Now</button>
                 </fieldset>
             </div>
         </section>
@@ -289,10 +289,10 @@
 
 
                     <label class="label  font-bold">Enter Bonus Coupon</label>
-                    <input type="password" class="input md:w-full rounded-xl" id="input-pin"
+                    <input type="password" class="input md:w-full rounded-xl" id="input-copun-bonus-form"
                         placeholder="Enter your coupon" />
                     <button class="btn btn-neutral mt-4 bg-blue-500 font-extrabold  border-none rounded-2xl"
-                        id="Add-Money-from-btn">Get Bonus</button>
+                        id="get-bonous-from-btn">Get Bonus</button>
                 </fieldset>
             </div>
         </section>
@@ -306,7 +306,7 @@
             <div>
                 <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl ">
                     <label class="label  font-bold">Select To Pay</label>
-                    <select class="select appearance-none md:w-full rounded-xl">
+                    <select class="select appearance-none md:w-full rounded-xl" id="select-bank-paybill">
                         <option disabled selected>Select back</option>
                         <option>AB Bank</option>
                         <option>Dutch Bangla Bank</option>
@@ -314,16 +314,16 @@
                     </select>
 
                     <label class="label  font-bold">Biller Account Number</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-number-paybill-form"
                         placeholder="Enter account number" />
                     <label class="label  font-bold">Amount to Pay</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-amount-paybill-form"
                         placeholder="Add Amount to pay" />
                     <label class="label  font-bold">Pin Number</label>
-                    <input type="password" class="input md:w-full rounded-xl" id="input-pin"
+                    <input type="password" class="input md:w-full rounded-xl" id="input-pin-paybill-form"
                         placeholder="Enter 4 digit pin number" />
                     <button class="btn btn-neutral mt-4 bg-blue-500 font-extrabold  border-none rounded-2xl"
-                        id="Add-Money-from-btn">Pay Now</button>
+                        id="paybill-from-btn">Pay Now</button>
                 </fieldset>
             </div>
         </section>
