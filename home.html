@@ -118,8 +118,9 @@
     </main>
     <!-- 🔥 Welcome to Payooo! end  -->
 
-    <!-- Latest Payment start  -->
+
     <footer class="md:w-11/12 mx-auto  py-5">
+        <!-- Latest Payment start  -->
         <section class="w-11/12 mx-auto py-2 md:py-4  ">
             <div class="flex items-center justify-between">
                 <h1 class="text-xl font-bold">Latest Payment</h1>
@@ -196,6 +197,41 @@
             </div>
 
         </section>
+        <!-- Latest Payment end  -->
+
+        <!--todo Add Money start -->
+        <section class="w-11/12 mx-auto py-2 md:py-4">
+            <h1 class="font-bold text-xl">
+                Add Money
+            </h1>
+            <div>
+                <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl ">
+                    <label class="label  font-bold">Select A Bank</label>
+                    <select class="select appearance-none md:w-full rounded-xl">
+                        <option disabled selected>Select back</option>
+                        <option>AB Bank</option>
+                        <option>Dutch Bangla Bank</option>
+                        <option>Sonali Bank</option>
+                    </select>
+
+                    <label class="label  font-bold">Bank Account Number</label>
+                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                        placeholder="Enter 11 digit account number" />
+                    <label class="label  font-bold">Amount to Add</label>
+                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                        placeholder="Add Amount to withdraw" />
+                    <label class="label  font-bold">Pin Number</label>
+                    <input type="password" class="input md:w-full rounded-xl" id="input-pin"
+                        placeholder="Enter 4 digit pin number" />
+                    <button class="btn btn-neutral mt-4 bg-blue-500 font-extrabold  border-none rounded-2xl"
+                        id="Add-Money-from-btn">Add Money</button>
+                </fieldset>
+            </div>
+        </section>
+
+        <!--todo Add Money end -->
+
+
     </footer>
     <script src="./js/home.js"></script>
 </body>
