@@ -199,7 +199,7 @@
         </section>
         <!-- Latest Payment end  -->
 
-        <!-- Money start -->
+        <!--Add Money start -->
         <section class="w-11/12 mx-auto py-2 md:py-4">
             <h1 class="font-bold text-xl">
                 Add Money
@@ -280,14 +280,14 @@
         <!-- Transfer Money end  -->
 
         <!-- Get Bonus start  -->
-         <section class="w-11/12 mx-auto py-2 md:py-4">
+        <section class="w-11/12 mx-auto py-2 md:py-4">
             <h1 class="font-bold text-xl">
                 Get Bonus
             </h1>
             <div>
                 <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl ">
 
-                   
+
                     <label class="label  font-bold">Enter Bonus Coupon</label>
                     <input type="password" class="input md:w-full rounded-xl" id="input-pin"
                         placeholder="Enter your coupon" />
@@ -297,6 +297,37 @@
             </div>
         </section>
         <!-- Get Bonus start  -->
+
+        <!-- Pay Bill start  -->
+        <section class="w-11/12 mx-auto py-2 md:py-4">
+            <h1 class="font-bold text-xl">
+                Pay Bill
+            </h1>
+            <div>
+                <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl ">
+                    <label class="label  font-bold">Select To Pay</label>
+                    <select class="select appearance-none md:w-full rounded-xl">
+                        <option disabled selected>Select back</option>
+                        <option>AB Bank</option>
+                        <option>Dutch Bangla Bank</option>
+                        <option>Sonali Bank</option>
+                    </select>
+
+                    <label class="label  font-bold">Biller Account Number</label>
+                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                        placeholder="Enter account number" />
+                    <label class="label  font-bold">Amount to Pay</label>
+                    <input type="email" class="input md:w-full rounded-xl" id="input-number"
+                        placeholder="Add Amount to pay" />
+                    <label class="label  font-bold">Pin Number</label>
+                    <input type="password" class="input md:w-full rounded-xl" id="input-pin"
+                        placeholder="Enter 4 digit pin number" />
+                    <button class="btn btn-neutral mt-4 bg-blue-500 font-extrabold  border-none rounded-2xl"
+                        id="Add-Money-from-btn">Pay Now</button>
+                </fieldset>
+            </div>
+        </section>
+        <!-- Pay Bill end   -->
     </footer>
     <script src="./js/home.js"></script>
 </body>
