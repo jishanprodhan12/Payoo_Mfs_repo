@@ -29,10 +29,12 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
                         </span>
                         <!-- title and time  -->
                         <div class="flex  flex-col gap-2">
-                            <span class="font-bold">
-                                Add Money </br>
-                                  added ${amount} tk </br>
-                                  new balance ${newBalance} tk
+                            <span>
+                                <span class ="font-bold">Add Money </span> </br>
+                                Bank Name : ${seletedBank} </br>
+                                Bank Account Number : ${accountNumber} </br>
+                                Amount to Add :  ${amount} tk </br>
+                                New balance : ${newBalance} tk
                             </span>
                             <span class="text-sm text-gray-500">
                                 ${time}    date  ${nowDate}
