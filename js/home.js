@@ -13,11 +13,11 @@ document.getElementById('Add-Money-from-btn').addEventListener('click',(event)=>
         const pin = getNumberValueFromInputFild('input-pin-add-money-form');
         // get abailable balance 
         const balance = getNumberValueFromInnerText('current-balance');
-        console.table(accountNumber , amount , pin , seletedBank ,balance);
         if(pin === 1234){
                 const newBalance = balance + amount ;
-                console.log(newBalance);
                 document.getElementById('current-balance').innerText = newBalance ;
+        }else{
+                alert("invalid pin ");
         }
 
 });
