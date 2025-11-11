@@ -11,6 +11,9 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
         const accountNumber = getValueFromInputFild('input-number-add-money-form');
         const amount = getNumberValueFromInputFild('input-amount-add-money-form');
         const pin = getNumberValueFromInputFild('input-pin-add-money-form');
+        if(isNaN(amount)){
+                return ;
+        }
         // get abailable balance 
         const balance = getNumberValueFromInnerText('current-balance');
         if (pin === 1234) {
@@ -37,7 +40,7 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
                                 New balance : ${newBalance} tk
                             </span>
                             <span class="text-sm text-gray-500">
-                                ${time}    date  ${nowDate}
+                               time : ${time}    date :   ${nowDate}
                             </span>
                         </div>
 
