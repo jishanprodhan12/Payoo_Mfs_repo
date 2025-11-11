@@ -9,5 +9,7 @@ document.getElementById('login-btn').addEventListener('click',function(event){
     if((inputNumber === 123456 ) && (inputPin === 1234)){
         window.location.href = './home.html'
     }
-    console.log("log houtase ")
+    else{
+        alert("number or pin is invalid ");
+    }
 })
