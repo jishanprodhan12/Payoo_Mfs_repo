@@ -7,13 +7,29 @@ document.getElementById('log-out-btn').addEventListener('click', () => {
 // add money event handdler 
 document.getElementById('Add-Money-from-btn').addEventListener('click', (event) => {
     event.preventDefault();
-    const seletedBank = getValueFromInputFild('select-bank-add-money-form');
+    const selectedBank = getValueFromInputFild('select-bank-add-money-form');
     const accountNumber = getValueFromInputFild('input-number-add-money-form');
     const amount = getNumberValueFromInputFild('input-amount-add-money-form');
     const pin = getNumberValueFromInputFild('input-pin-add-money-form');
-    if (isNaN(amount)) {
-        return;
-    }
+ 
+    if (!selectedBank || selectedBank === "Select bank") {
+    alert("⚠️ Please select a valid bank.");
+    return;
+  }
+  if (!accountNumber) {
+    alert("⚠️ Please enter your account number.");
+    return;
+  }
+  if (isNaN(amount) || amount <= 0) {
+    alert("⚠️ Please enter a valid amount.");
+    return;
+  }
+  if (isNaN(pin)) {
+    alert("⚠️ Please enter your 4-digit PIN.");
+    return;
+  }
+
+  
     // get abailable balance 
     const balance = getNumberValueFromInnerText('current-balance');
     if (pin === 1234) {
@@ -34,7 +50,7 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
                         <div class="flex  flex-col gap-2">
                             <span>
                                 <span class ="font-bold">Add Money </span> </br>
-                                Bank Name : ${seletedBank} </br>
+                                Bank Name : ${selectedBank} </br>
                                 Bank Account Number : ${accountNumber} </br>
                                 Amount to Add :  ${amount} tk </br>
                                 New balance : ${newBalance} tk
@@ -71,7 +87,7 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
                         <div class="flex  flex-col gap-2">
                             <span>
                                 <span class ="font-bold">Add Money </span> </br>
-                                Bank Name : ${seletedBank} </br>
+                                Bank Name : ${selectedBank} </br>
                                 Bank Account Number : ${accountNumber} </br>
                                 Amount to Add :  ${amount} tk </br>
                                 New balance : ${newBalance} tk
@@ -83,7 +99,7 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
                 </div>`
                 //append modal content 
         addMoneyModalContainer.appendChild(modalDiv);
-    
+        // remove all value 
         document.getElementById('select-bank-add-money-form').value = '';
         document.getElementById('input-number-add-money-form').value = '';
         document.getElementById('input-amount-add-money-form').value = '';
@@ -93,4 +109,11 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
         alert("invalid pin ");
     }
 
+});
+
+// add money handler  end .
+
+//   cash out money handler  start 
+document.getElementById('withdraw-cash-out-from-btn').addEventListener('click',()=>{
+        console.log("cashout btn click");
 });

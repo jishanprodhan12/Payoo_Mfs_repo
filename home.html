@@ -205,20 +205,20 @@
                 Add Money
             </h1>
             <div>
-                <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl ">
+                <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl " >
                     <label class="label  font-bold">Select A Bank</label>
-                    <select class="select appearance-none md:w-full rounded-xl" id="select-bank-add-money-form">
-                        <option disabled selected>Select back</option>
+                    <select class="select appearance-none md:w-full rounded-xl"  id="select-bank-add-money-form" required>
+                        <option value="" disabled selected>Select bank</option>
                         <option>AB Bank</option>
                         <option>Dutch Bangla Bank</option>
                         <option>Sonali Bank</option>
                     </select>
 
                     <label class="label  font-bold">Bank Account Number</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-number-add-money-form"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-number-add-money-form" required
                         placeholder="Enter 11 digit account number" />
                     <label class="label  font-bold">Amount to Add</label>
-                    <input type="email" class="input md:w-full rounded-xl" id="input-amount-add-money-form"
+                    <input type="email" class="input md:w-full rounded-xl" id="input-amount-add-money-form" required
                         placeholder="Add Amount to withdraw" />
                     <label class="label  font-bold">Pin Number</label>
                     <input type="password" class="input md:w-full rounded-xl" id="input-pin-add-money-form"
@@ -266,6 +266,20 @@
                         id="withdraw-cash-out-from-btn">Withdraw Money</button>
                 </fieldset>
             </div>
+
+            <!--* modal start  -->
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="cashout-modal" class="modal modal-bottom sm:modal-middle hidden">
+                <div class="modal-box" id="add-money-modal-container">
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+            <!--* modal end  -->
         </section>
         <!-- cash out section end   -->
 
