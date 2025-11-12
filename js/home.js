@@ -207,6 +207,14 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
         //append modal content 
         addMoneyModalContainer.appendChild(modalDiv);
 
+        // remove all value 
+        document.getElementById('input-number-cash-out-form').value ='';
+        document.getElementById('input-amount-cash-out-form').value ='';
+        document.getElementById('input-pin-cash-out-form').value ='';
+             removeCashOutModal =()=>{
+            document.getElementById('cash-out-modal-container').removeChild(modalDiv);
+        }
+
     } else {
         alert("⚠️ Invalid pin ");
     }
