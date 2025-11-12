@@ -115,5 +115,8 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
 
 //   cash out money handler  start 
 document.getElementById('withdraw-cash-out-from-btn').addEventListener('click',()=>{
-        console.log("cashout btn click");
+        const cashoutNumber =getValueFromInputFild('input-number-cash-out-form');
+        const cashOutAmount = getNumberValueFromInputFild('input-amount-cash-out-form');
+        const cashOutPin = getNumberValueFromInputFild('input-pin-cash-out-form');
+        console.log(cashoutNumber ,cashOutAmount , cashOutPin);
 });
