@@ -11,25 +11,25 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
     const accountNumber = getValueFromInputFild('input-number-add-money-form');
     const amount = getNumberValueFromInputFild('input-amount-add-money-form');
     const pin = getNumberValueFromInputFild('input-pin-add-money-form');
- 
-    if (!selectedBank || selectedBank === "Select bank") {
-    alert("⚠️ Please select a valid bank.");
-    return;
-  }
-  if (!accountNumber) {
-    alert("⚠️ Please enter your account number.");
-    return;
-  }
-  if (isNaN(amount) || amount <= 0) {
-    alert("⚠️ Please enter a valid amount.");
-    return;
-  }
-  if (isNaN(pin)) {
-    alert("⚠️ Please enter your 4-digit PIN.");
-    return;
-  }
 
-  
+    if (!selectedBank || selectedBank === "Select bank") {
+        alert("⚠️ Please select a valid bank.");
+        return;
+    }
+    if (!accountNumber) {
+        alert("⚠️ Please enter your account number.");
+        return;
+    }
+    if (isNaN(amount) || amount <= 0) {
+        alert("⚠️ Please enter a valid amount.");
+        return;
+    }
+    if (isNaN(pin)) {
+        alert("⚠️ Please enter your 4-digit PIN.");
+        return;
+    }
+
+
     // get abailable balance 
     const balance = getNumberValueFromInnerText('current-balance');
     if (pin === 1234) {
@@ -97,13 +97,17 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
                             </span>
                         </div>
                 </div>`
-                //append modal content 
+        //append modal content 
         addMoneyModalContainer.appendChild(modalDiv);
         // remove all value 
         document.getElementById('select-bank-add-money-form').value = '';
         document.getElementById('input-number-add-money-form').value = '';
         document.getElementById('input-amount-add-money-form').value = '';
         document.getElementById('input-pin-add-money-form').value = '';
+        
+        removeData = ()=>{
+            document.getElementById('add-money-modal-container').removeChild(modalDiv) ;
+        }
 
     } else {
         alert("invalid pin ");
@@ -114,9 +118,33 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
 // add money handler  end .
 
 //   cash out money handler  start 
-document.getElementById('withdraw-cash-out-from-btn').addEventListener('click',()=>{
-        const cashoutNumber =getValueFromInputFild('input-number-cash-out-form');
-        const cashOutAmount = getNumberValueFromInputFild('input-amount-cash-out-form');
-        const cashOutPin = getNumberValueFromInputFild('input-pin-cash-out-form');
-        console.log(cashoutNumber ,cashOutAmount , cashOutPin);
+document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', () => {
+    const cashoutNumber = getValueFromInputFild('input-number-cash-out-form');
+    const cashOutAmount = getNumberValueFromInputFild('input-amount-cash-out-form');
+    const cashOutPin = getNumberValueFromInputFild('input-pin-cash-out-form');
+
+    if (!cashoutNumber) {
+        alert("⚠️ Please enter your account number.");
+        return;
+    }
+    if (isNaN(cashOutAmount) || cashOutAmount <= 0) {
+        alert("⚠️ Please enter a valid amount.");
+        return;
+    }
+    if (isNaN(cashOutPin)) {
+        alert("⚠️ Please enter your 4-digit PIN.");
+        return;
+    }
+    if(cashOutPin === 1234){
+            console.log('pin thik ache ekon sob kaj hobe ');
+            const balance = getNumberValueFromInnerText('current-balance');
+            console.log(balance);
+            const newBalance= balance - cashOutAmount ;
+            console.log(balance , cashOutAmount , newBalance);
+            document.getElementById('current-balance').innerText = newBalance ;
+
+
+    }else{
+        alert("⚠️ Invalid pin ");
+    }
 });
