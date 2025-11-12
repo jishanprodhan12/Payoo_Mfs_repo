@@ -104,9 +104,9 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
         document.getElementById('input-number-add-money-form').value = '';
         document.getElementById('input-amount-add-money-form').value = '';
         document.getElementById('input-pin-add-money-form').value = '';
-        
-        removeData = ()=>{
-            document.getElementById('add-money-modal-container').removeChild(modalDiv) ;
+
+        removeData = () => {
+            document.getElementById('add-money-modal-container').removeChild(modalDiv);
         }
 
     } else {
@@ -135,16 +135,79 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
         alert("⚠️ Please enter your 4-digit PIN.");
         return;
     }
-    if(cashOutPin === 1234){
-            console.log('pin thik ache ekon sob kaj hobe ');
-            const balance = getNumberValueFromInnerText('current-balance');
-            console.log(balance);
-            const newBalance= balance - cashOutAmount ;
-            console.log(balance , cashOutAmount , newBalance);
-            document.getElementById('current-balance').innerText = newBalance ;
+    if (cashOutPin === 1234) {
+        console.log('pin thik ache ekon sob kaj hobe ');
+        const balance = getNumberValueFromInnerText('current-balance');
+        console.log(balance);
+        const newBalance = balance - cashOutAmount;
+        console.log(balance, cashOutAmount, newBalance);
+        document.getElementById('current-balance').innerText = newBalance;
 
+        // create element 
+        const div = document.createElement('div');
+        // target parent 
+        const transactionCotainer = document.getElementById('transaction-container');
+        const time = new Date().toLocaleTimeString();
+        const nowDate = new Date().toLocaleDateString();
+        div.innerHTML = ` <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
+                    <div class=" flex items-center justify-center gap-4 ">
+                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
+                            <img src="./assets/send 1.png" alt="" class="w-full">
+                        </span>
+                        <!-- title and time  -->
+                        <div class="flex  flex-col gap-2">
+                            <span>
+                                <span class ="font-bold">Cash Out </span> </br>
+                                Agent Number : ${cashoutNumber} </br>
+                                Amount to withdraw :  ${cashOutAmount} tk </br>
+                                New balance : ${newBalance} tk
+                            </span>
+                            <span class="text-sm text-gray-500">
+                               time : ${time}    date :   ${nowDate}
+                            </span>
+                        </div>
 
-    }else{
+                    </div>
+                    <div class="w-6 h-6">
+                        <img src="./assets/dot.png" alt="" class="w-full">
+                    </div>
+                </div>`
+
+        // append child 
+        transactionCotainer.appendChild(div);
+
+        // modal 
+        document.getElementById('cashout-modal').classList.remove('hidden');
+        document.getElementById('cashout-modal').showModal();
+
+        const addMoneyModalContainer = document.getElementById('cash-out-modal-container');
+        // create div 
+        const modalDiv = document.createElement('div');
+
+        modalDiv.innerHTML = ` <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
+                    <div class=" flex items-center justify-center gap-4 ">
+                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
+                            <img src="./assets/send 1.png" alt="" class="w-full">
+                        </span>
+                        <!-- title and time  -->
+                        <div class="flex  flex-col gap-2">
+                            <span>
+                                <span class ="font-bold">Cash Out </span> </br>
+                                Agent Number : ${cashoutNumber} </br>
+                                Amount to withdraw :  ${cashOutAmount} tk </br>
+                                New balance : ${newBalance} tk
+                            </span>
+                            <span class="text-sm text-gray-500">
+                               time : ${time}    date :   ${nowDate}
+                            </span>
+                        </div>
+
+                    </div>
+                </div>`
+        //append modal content 
+        addMoneyModalContainer.appendChild(modalDiv);
+
+    } else {
         alert("⚠️ Invalid pin ");
     }
 });
