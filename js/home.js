@@ -136,9 +136,7 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
         return;
     }
     if (cashOutPin === 1234) {
-        console.log('pin thik ache ekon sob kaj hobe ');
         const balance = getNumberValueFromInnerText('current-balance');
-        console.log(balance);
         const newBalance = balance - cashOutAmount;
         document.getElementById('current-balance').innerText = newBalance;
 
@@ -221,7 +219,7 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
 
 //todo transfer money 
 document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
-    const number = getNumberValueFromInputFild('input-number-transfer-money-form');
+    const number = getValueFromInputFild('input-number-transfer-money-form');
     const amount = getNumberValueFromInputFild('input-amount-transfer-money-form');
     const pin = getNumberValueFromInputFild('input-pin-transfer-money-form');
 
@@ -236,6 +234,48 @@ document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
     if (isNaN(pin)) {
         alert("⚠️ Please enter your 4-digit PIN.");
         return;
+    }
+    console.log(number)
+    if (pin === 1234) {
+        const balance = getNumberValueFromInnerText('current-balance');
+        const newBalance = balance - amount;
+        document.getElementById('current-balance').innerText = newBalance;
+
+        // create element 
+        const div = document.createElement('div');
+        // target parent 
+        const transactionCotainer = document.getElementById('transaction-container');
+        const time = new Date().toLocaleTimeString();
+        const nowDate = new Date().toLocaleDateString();
+        div.innerHTML = ` <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
+                    <div class=" flex items-center justify-center gap-4 ">
+                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
+                            <img src="./assets/money 1.png" alt="" class="w-full">
+                        </span>
+                        <!-- title and time  -->
+                        <div class="flex  flex-col gap-2">
+                            <span>
+                                <span class ="font-bold">Cash Out </span> </br>
+                                User Account Number : ${number} </br>
+                                Amount to transfer :  ${amount} tk </br>
+                                New balance : ${newBalance} tk
+                            </span>
+                            <span class="text-sm text-gray-500">
+                               time : ${time}    date :   ${nowDate}
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="w-6 h-6">
+                        <img src="./assets/dot.png" alt="" class="w-full">
+                    </div>
+                </div>`
+
+        // append child 
+        transactionCotainer.appendChild(div);
+
+    }else{
+         alert("⚠️ Invalid pin ");
     }
 
 });
