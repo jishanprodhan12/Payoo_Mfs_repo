@@ -235,7 +235,6 @@ document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
         alert("⚠️ Please enter your 4-digit PIN.");
         return;
     }
-    console.log(number)
     if (pin === 1234) {
         const balance = getNumberValueFromInnerText('current-balance');
         const newBalance = balance - amount;
@@ -274,8 +273,46 @@ document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
         // append child 
         transactionCotainer.appendChild(div);
 
-    }else{
-         alert("⚠️ Invalid pin ");
+        //modal 
+        document.getElementById('transfer-money-modal').classList.remove('hidden');
+        document.getElementById('transfer-money-modal').showModal();
+        //target transfermodal container 
+        const transferModalContainer = document.getElementById('transfer-money-modal-container')
+        // create modal container 
+        const modalDiv = document.createElement('div');
+        modalDiv.innerHTML = ` <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
+                    <div class=" flex items-center justify-center gap-4 ">
+                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
+                            <img src="./assets/money 1.png" alt="" class="w-full">
+                        </span>
+                        <!-- title and time  -->
+                        <div class="flex  flex-col gap-2">
+                            <span>
+                                <span class ="font-bold">Cash Out </span> </br>
+                                User Account Number : ${number} </br>
+                                Amount to transfer :  ${amount} tk </br>
+                                New balance : ${newBalance} tk
+                            </span>
+                            <span class="text-sm text-gray-500">
+                               time : ${time}    date :   ${nowDate}
+                            </span>
+                        </div>
+
+                    </div>
+                </div>`
+        //append modal content 
+        transferModalContainer.appendChild(modalDiv);
+        // reset using empty string 
+        document.getElementById('input-number-transfer-money-form').value = '';
+        document.getElementById('input-amount-transfer-money-form').value = '';
+        document.getElementById('input-pin-transfer-money-form').value = '';
+        // reset modal containt 
+        removeTransferModal=()=>{
+            document.getElementById('transfer-money-modal-container').removeChild(modalDiv);
+        }
+
+    } else {
+        alert("⚠️ Invalid pin ");
     }
 
 });
