@@ -207,10 +207,10 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
         addMoneyModalContainer.appendChild(modalDiv);
 
         // remove all value 
-        document.getElementById('input-number-cash-out-form').value ='';
-        document.getElementById('input-amount-cash-out-form').value ='';
-        document.getElementById('input-pin-cash-out-form').value ='';
-             removeCashOutModal =()=>{
+        document.getElementById('input-number-cash-out-form').value = '';
+        document.getElementById('input-amount-cash-out-form').value = '';
+        document.getElementById('input-pin-cash-out-form').value = '';
+        removeCashOutModal = () => {
             document.getElementById('cash-out-modal-container').removeChild(modalDiv);
         }
 
@@ -220,7 +220,22 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
 });
 
 //todo transfer money 
-document.getElementById('sent-Money-from-btn').addEventListener('click',()=>{
-    console.log('transfer money btn click');
-    
+document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
+    const number = getNumberValueFromInputFild('input-number-transfer-money-form');
+    const amount = getNumberValueFromInputFild('input-amount-transfer-money-form');
+    const pin = getNumberValueFromInputFild('input-pin-transfer-money-form');
+
+    if (!number) {
+        alert("⚠️ Please enter your account number.");
+        return;
+    }
+    if (isNaN(amount) || amount <= 0) {
+        alert("⚠️ Please enter a valid amount.");
+        return;
+    }
+    if (isNaN(pin)) {
+        alert("⚠️ Please enter your 4-digit PIN.");
+        return;
+    }
+
 });
