@@ -140,7 +140,6 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
         const balance = getNumberValueFromInnerText('current-balance');
         console.log(balance);
         const newBalance = balance - cashOutAmount;
-        console.log(balance, cashOutAmount, newBalance);
         document.getElementById('current-balance').innerText = newBalance;
 
         // create element 
@@ -218,4 +217,10 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
     } else {
         alert("⚠️ Invalid pin ");
     }
+});
+
+//todo transfer money 
+document.getElementById('sent-Money-from-btn').addEventListener('click',()=>{
+    console.log('transfer money btn click');
+    
 });

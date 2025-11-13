@@ -205,9 +205,10 @@
                 Add Money
             </h1>
             <div>
-                <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl " >
+                <fieldset class="fieldset p-4 md:p-10 shadow-2xl rounded-2xl ">
                     <label class="label  font-bold">Select A Bank</label>
-                    <select class="select appearance-none md:w-full rounded-xl"  id="select-bank-add-money-form" required>
+                    <select class="select appearance-none md:w-full rounded-xl" id="select-bank-add-money-form"
+                        required>
                         <option value="" disabled selected>Select bank</option>
                         <option>AB Bank</option>
                         <option>Dutch Bangla Bank</option>
@@ -266,7 +267,7 @@
                         id="withdraw-cash-out-from-btn">Withdraw Money</button>
                 </fieldset>
             </div>
-                
+
             <!--* modal start  -->
             <!-- Open the modal using ID.showModal() method -->
             <dialog id="cashout-modal" class="modal modal-bottom sm:modal-middle hidden">
@@ -304,6 +305,21 @@
                         id="sent-Money-from-btn">Send Now</button>
                 </fieldset>
             </div>
+
+            <!--* modal transferMoney start  -->
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="transfer-money-modal" class="modal modal-bottom sm:modal-middle hidden">
+                <div class="modal-box" id="cash-out-modal-container">
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn" onclick="">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+            <!--* modal end  -->
+
         </section>
         <!-- Transfer Money end  -->
 
