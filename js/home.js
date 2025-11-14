@@ -327,9 +327,41 @@ document.getElementById('get-bonous-from-btn').addEventListener('click', () => {
         return;
     } else if (copun === 'payoo-copun') {
         const balance = getNumberValueFromInnerText('current-balance');
-        const bonous = ((balance * 2 ) / 100);
-        const newBalance = balance + bonous ; 
+        const bonous = ((balance * 2) / 100);
+        const newBalance = balance + bonous;
         document.getElementById('current-balance').innerText = newBalance;
-        
+
+        // target element 
+        const transactionCotainer = document.getElementById('transaction-container');
+        // create a div 
+        const div = document.createElement('div');
+        const time = new Date().toLocaleTimeString();
+        const nowDate = new Date().toLocaleDateString();
+        div.innerHTML = ` <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
+                    <div class=" flex items-center justify-center gap-4 ">
+                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
+                            <img src="./assets/financial 1.png" alt="" class="w-full">
+                        </span>
+                        <!-- title and time  -->
+                        <div class="flex  flex-col gap-2">
+                            <span>
+                                <span class ="font-bold">Get Bonus </span> </br>
+                                coupon Code : ${copun} </br>
+                                2 %  Bonus is  : ${bonous} tk </br>
+                                New balance : ${newBalance} tk
+                            </span>
+                            <span class="text-sm text-gray-500">
+                               time : ${time}    date :   ${nowDate}
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="w-6 h-6">
+                        <img src="./assets/dot.png" alt="" class="w-full">
+                    </div>
+                </div>`
+
+        // append child 
+        transactionCotainer.appendChild(div);
     }
 });
