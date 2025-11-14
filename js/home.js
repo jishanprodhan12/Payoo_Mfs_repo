@@ -307,7 +307,7 @@ document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
         document.getElementById('input-amount-transfer-money-form').value = '';
         document.getElementById('input-pin-transfer-money-form').value = '';
         // reset modal containt 
-        removeTransferModal=()=>{
+        removeTransferModal = () => {
             document.getElementById('transfer-money-modal-container').removeChild(modalDiv);
         }
 
@@ -315,4 +315,21 @@ document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
         alert("⚠️ Invalid pin ");
     }
 
+});
+
+
+// get bonous 
+document.getElementById('get-bonous-from-btn').addEventListener('click', () => {
+    const copun = getValueFromInputFild('input-copun-bonus-form');
+    console.log(copun)
+    if (!copun) {
+        alert("⚠️ Please enter a valid cupon code .");
+        return;
+    } else if (copun === 'payoo-copun') {
+        const balance = getNumberValueFromInnerText('current-balance');
+        const bonous = ((balance * 2 ) / 100);
+        const newBalance = balance + bonous ; 
+        document.getElementById('current-balance').innerText = newBalance;
+        
+    }
 });
