@@ -363,5 +363,37 @@ document.getElementById('get-bonous-from-btn').addEventListener('click', () => {
 
         // append child 
         transactionCotainer.appendChild(div);
+
+        //modal 
+        document.getElementById('get-coupon-bonus-modal').classList.remove('hidden');
+        document.getElementById('get-coupon-bonus-modal').showModal();
+
+        //target transfermodal container 
+        const couponModalContainer = document.getElementById('coupon-bonous-modal-container')
+        // create modal container 
+        const modalDiv = document.createElement('div');
+        modalDiv.innerHTML = ` <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
+                    <div class=" flex items-center justify-center gap-4 ">
+                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
+                            <img src="./assets/financial 1.png" alt="" class="w-full">
+                        </span>
+                        <!-- title and time  -->
+                        <div class="flex  flex-col gap-2">
+                            <span>
+                                <span class ="font-bold">Get Bonus </span> </br>
+                                coupon Code : ${copun} </br>
+                                2 %  Bonus is  : ${bonous} tk </br>
+                                New balance : ${newBalance} tk
+                            </span>
+                            <span class="text-sm text-gray-500">
+                               time : ${time}    date :   ${nowDate}
+                            </span>
+                        </div>
+
+                    </div>
+                </div>`
+        //append modal content 
+        couponModalContainer.appendChild(modalDiv);
+        
     }
 });
