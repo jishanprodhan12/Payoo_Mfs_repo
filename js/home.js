@@ -325,7 +325,7 @@ document.getElementById('get-bonous-from-btn').addEventListener('click', () => {
     if (!copun) {
         alert("⚠️ Please enter a valid cupon code .");
         return;
-    } else if (copun === 'payoo-copun') {
+    } else  {
         const balance = getNumberValueFromInnerText('current-balance');
         const bonous = ((balance * 2) / 100);
         const newBalance = balance + bonous;
@@ -394,6 +394,13 @@ document.getElementById('get-bonous-from-btn').addEventListener('click', () => {
                 </div>`
         //append modal content 
         couponModalContainer.appendChild(modalDiv);
-        
+
+        //reset bonous fild 
+        document.getElementById('input-copun-bonus-form').value = '';
+
+        resetCopunModal =()=>{
+            document.getElementById('coupon-bonous-modal-container').removeChild(modalDiv);
+        }
+
     }
 });
