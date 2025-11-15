@@ -384,6 +384,20 @@
                         id="paybill-from-btn">Pay Now</button>
                 </fieldset>
             </div>
+            <!--* modal start  -->
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="pay-bill-modal" class="modal modal-bottom sm:modal-middle hidden">
+                <div class="modal-box" id="pay-bill-modal-container">
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn" onclick="">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+            <!--* modal end  -->
+
         </section>
         <!-- Pay Bill end   -->
 
