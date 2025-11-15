@@ -325,7 +325,7 @@ document.getElementById('get-bonous-from-btn').addEventListener('click', () => {
     if (!copun) {
         alert("⚠️ Please enter a valid cupon code .");
         return;
-    } else  {
+    } else {
         const balance = getNumberValueFromInnerText('current-balance');
         const bonous = ((balance * 2) / 100);
         const newBalance = balance + bonous;
@@ -398,9 +398,122 @@ document.getElementById('get-bonous-from-btn').addEventListener('click', () => {
         //reset bonous fild 
         document.getElementById('input-copun-bonus-form').value = '';
 
-        resetCopunModal =()=>{
+        resetCopunModal = () => {
             document.getElementById('coupon-bonous-modal-container').removeChild(modalDiv);
         }
 
     }
 });
+
+// pay bill  function handler 
+
+document.getElementById('paybill-from-btn').addEventListener('click', (event) => {
+    event.preventDefault();
+    const selectedBank = getValueFromInputFild('select-bank-paybill');
+    const accountNumber = getValueFromInputFild('input-number-paybill-form');
+    const amount = getNumberValueFromInputFild('input-amount-paybill-form');
+    const pin = getNumberValueFromInputFild('input-pin-paybill-form');
+
+    if (!selectedBank || selectedBank === "Select bank") {
+        alert("⚠️ Please select a valid bank.");
+        return;
+    }
+    if (!accountNumber) {
+        alert("⚠️ Please enter your account number.");
+        return;
+    }
+    if (isNaN(amount) || amount <= 0) {
+        alert("⚠️ Please enter a valid amount.");
+        return;
+    }
+    if (isNaN(pin)) {
+        alert("⚠️ Please enter your 4-digit PIN.");
+        return;
+    }
+
+
+    // get abailable balance 
+    const balance = getNumberValueFromInnerText('current-balance');
+    if (pin === 1234) {
+        const newBalance = balance - amount;
+        document.getElementById('current-balance').innerText = newBalance;
+        // create element 
+        const div = document.createElement('div');
+        // target parent 
+        const transactionCotainer = document.getElementById('transaction-container');
+        const time = new Date().toLocaleTimeString();
+        const nowDate = new Date().toLocaleDateString();
+        div.innerHTML = ` <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
+                    <div class=" flex items-center justify-center gap-4 ">
+                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
+                            <img src="./assets/purse 1.png" alt="" class="w-full">
+                        </span>
+                        <!-- title and time  -->
+                        <div class="flex  flex-col gap-2">
+                            <span>
+                                <span class ="font-bold">Add Money </span> </br>
+                                Bank Name : ${selectedBank} </br>
+                                Biller Account Number : ${accountNumber} </br>
+                                Amount to pay :  ${amount} tk </br>
+                                New balance : ${newBalance} tk
+                            </span>
+                            <span class="text-sm text-gray-500">
+                               time : ${time}    date :   ${nowDate}
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="w-6 h-6">
+                        <img src="./assets/dot.png" alt="" class="w-full">
+                    </div>
+                </div>`
+
+        // append child 
+        transactionCotainer.appendChild(div);
+
+        // modal 
+        document.getElementById('pay-bill-modal').classList.remove('hidden');
+        document.getElementById('pay-bill-modal').showModal();
+        /// modal inner text 
+        // target parent contianer 
+        const addMoneyModalContainer = document.getElementById('pay-bill-modal-container');
+        // create div 
+        const modalDiv = document.createElement('div');
+
+        modalDiv.innerHTML = ` <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
+                    <div class=" flex items-center justify-center gap-4 ">
+                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
+                            <img src="./assets/purse 1.png" alt="" class="w-full">
+                        </span>
+                        <!-- title and time  -->
+                        <div class="flex  flex-col gap-2">
+                            <span>
+                                <span class ="font-bold">Add Money </span> </br>
+                                Bank Name : ${selectedBank} </br>
+                                Biller Account Number : ${accountNumber} </br>
+                                Amount to pay :  ${amount} tk </br>
+                                New balance : ${newBalance} tk
+                            </span>
+                            <span class="text-sm text-gray-500">
+                               time : ${time}    date :   ${nowDate}
+                            </span>
+                        </div>
+                </div>`
+        //append modal content 
+        addMoneyModalContainer.appendChild(modalDiv);
+        // remove all value 
+        document.getElementById('select-bank-paybill').value = '';
+        document.getElementById('input-number-paybill-form').value = '';
+        document.getElementById('input-amount-paybill-form').value = '';
+        document.getElementById('input-pin-paybill-form').value = '';
+
+        removePaybillModalData = () => {
+            document.getElementById('pay-bill-modal-container').removeChild(modalDiv);
+        }
+
+    } else {
+        alert("invalid pin ");
+    }
+});
+
+
