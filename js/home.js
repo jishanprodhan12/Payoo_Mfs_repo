@@ -109,7 +109,7 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
             document.getElementById('add-money-modal-container').removeChild(modalDiv);
         }
 
-        document.getElementById('no-transaction').classList.add('hidden')
+        document.getElementById('no-transaction').classList.add('hidden');
     } else {
         alert("invalid pin ");
     }

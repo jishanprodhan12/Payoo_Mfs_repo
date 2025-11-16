@@ -129,70 +129,29 @@
             </div>
             <!-- all cards  -->
             <div class=" grid col-span-1  gap-4 md:gap-5 py-4">
-                <!-- all features card -->
-                <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
-                    <div class=" flex items-center justify-center gap-4 ">
-                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
-                            <img src="./assets/purse 1.png" alt="" class="w-full">
-                        </span>
-                        <!-- title and time  -->
-                        <div class="flex  flex-col gap-2">
-                            <span class="font-bold">
-                                Electricity Bill
-                            </span>
-                            <span class="text-sm text-gray-500">
-                                Today 01:44 AM
-                            </span>
-                        </div>
+                <div class="bg-white shadow-2xl rounded-3xl p-10 text-center max-w-md mx-auto my-20"
+                    id="no-transaction-letest">
+                    <!-- Icon -->
+                    <div class="flex justify-center mb-6">
+                        <svg class="w-20 h-20 text-indigo-400 animate-bounce" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17v-4h6v4m-3-6v6m6-10H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V9a2 2 0 00-2-2z" />
+                        </svg>
+                    </div>
 
-                    </div>
-                    <div class="w-6 h-6">
-                        <img src="./assets/dot.png" alt="" class="w-full">
-                    </div>
-                </div>
-                <!-- all features card -->
-                <!-- all features card -->
-                <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
-                    <div class=" flex items-center justify-center gap-4 ">
-                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
-                            <img src="./assets/purse 1.png" alt="" class="w-full">
-                        </span>
-                        <!-- title and time  -->
-                        <div class="flex  flex-col gap-2">
-                            <span class="font-bold">
-                                Electricity Bill
-                            </span>
-                            <span class="text-sm text-gray-500">
-                                Today 01:44 AM
-                            </span>
-                        </div>
+                    <!-- Heading -->
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2">No Transactions Yet</h1>
 
-                    </div>
-                    <div class="w-6 h-6">
-                        <img src="./assets/dot.png" alt="" class="w-full">
-                    </div>
-                </div>
-                <!-- all features card -->
-                <!-- all features card -->
-                <div class="flex items-center  justify-between bg-white p-3 rounded-xl shadow-md">
-                    <div class=" flex items-center justify-center gap-4 ">
-                        <span class="w-11 h-11 rounded-full p-2  bg-slate-50 flex items-center justify-center ">
-                            <img src="./assets/purse 1.png" alt="" class="w-full">
-                        </span>
-                        <!-- title and time  -->
-                        <div class="flex  flex-col gap-2">
-                            <span class="font-bold">
-                                Electricity Bill
-                            </span>
-                            <span class="text-sm text-gray-500">
-                                Today 01:44 AM
-                            </span>
-                        </div>
+                    <!-- Subtext -->
+                    <p class="text-gray-500 mb-6">You haven’t made any transactions yet. Start exploring to see them
+                        here!</p>
 
-                    </div>
-                    <div class="w-6 h-6">
-                        <img src="./assets/dot.png" alt="" class="w-full">
-                    </div>
+                    <!-- Action Button -->
+                    <a href="#all-feature-btn-container"
+                        class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition transform hover:-translate-y-1">
+                        Make Your First Transaction
+                    </a>
                 </div>
                 <!-- all features card -->
             </div>
@@ -445,7 +404,6 @@
     <script src="./js/home.js"></script>
     <script src="./js/utilitys.js"></script>
     <script>
-
         // Map buttons to section titles
         const featureMap = {
             "add-money-btn": "Add Money",
@@ -456,11 +414,16 @@
             "transactions-btn": "Transaction History"
         };
 
+        // Select Latest Payment section
+        const latestSection = Array.from(document.querySelectorAll("footer section"))
+            .find(sec => sec.querySelector("h1")?.textContent.includes("Latest Payment"));
+
         // Hide all feature sections at start
         document.addEventListener("DOMContentLoaded", () => {
             const sections = Array.from(document.querySelectorAll("main section, footer section"))
                 .filter(sec => Object.values(featureMap).includes(sec.querySelector("h1")?.textContent.trim()));
             sections.forEach(sec => sec.style.display = "none");
+            if (latestSection) latestSection.style.display = "block";
         });
 
         // Toggle sections & active button
@@ -470,10 +433,13 @@
                 const sections = Array.from(document.querySelectorAll("main section, footer section"))
                     .filter(sec => Object.values(featureMap).includes(sec.querySelector("h1")?.textContent.trim()));
 
-                // Show selected section
+                // Show selected feature section, hide others
                 sections.forEach(sec => {
                     sec.style.display = sec.querySelector("h1").textContent.trim() === title ? "block" : "none";
                 });
+
+                // Hide Latest Payment section when a feature is active
+                if (latestSection) latestSection.style.display = "none";
 
                 // Active button minimal styling
                 Object.keys(featureMap).forEach(id => {
@@ -490,6 +456,7 @@
                 });
             });
         });
+
 
     </script>
 </body>
