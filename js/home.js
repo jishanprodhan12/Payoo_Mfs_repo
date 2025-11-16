@@ -109,6 +109,7 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
             document.getElementById('add-money-modal-container').removeChild(modalDiv);
         }
 
+        document.getElementById('no-transaction').classList.add('hidden');
     } else {
         alert("invalid pin ");
     }
@@ -211,7 +212,7 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
         removeCashOutModal = () => {
             document.getElementById('cash-out-modal-container').removeChild(modalDiv);
         }
-
+        document.getElementById('no-transaction').classList.add('hidden');
     } else {
         alert("⚠️ Invalid pin ");
     }
@@ -311,6 +312,7 @@ document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
             document.getElementById('transfer-money-modal-container').removeChild(modalDiv);
         }
 
+        document.getElementById('no-transaction').classList.add('hidden');
     } else {
         alert("⚠️ Invalid pin ");
     }
@@ -401,7 +403,7 @@ document.getElementById('get-bonous-from-btn').addEventListener('click', () => {
         resetCopunModal = () => {
             document.getElementById('coupon-bonous-modal-container').removeChild(modalDiv);
         }
-
+        document.getElementById('no-transaction').classList.add('hidden');
     }
 });
 
@@ -510,6 +512,7 @@ document.getElementById('paybill-from-btn').addEventListener('click', (event) =>
         removePaybillModalData = () => {
             document.getElementById('pay-bill-modal-container').removeChild(modalDiv);
         }
+        document.getElementById('no-transaction').classList.add('hidden');
 
     } else {
         alert("invalid pin ");
