@@ -109,7 +109,8 @@ document.getElementById('Add-Money-from-btn').addEventListener('click', (event) 
             document.getElementById('add-money-modal-container').removeChild(modalDiv);
         }
 
-        document.getElementById('no-transaction').classList.add('hidden')    } else {
+        document.getElementById('no-transaction').classList.add('hidden')
+    } else {
         alert("invalid pin ");
     }
 
@@ -122,12 +123,13 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
     const cashoutNumber = getValueFromInputFild('input-number-cash-out-form');
     const cashOutAmount = getNumberValueFromInputFild('input-amount-cash-out-form');
     const cashOutPin = getNumberValueFromInputFild('input-pin-cash-out-form');
+    const balance = getNumberValueFromInnerText('current-balance');
 
     if (!cashoutNumber) {
         alert("⚠️ Please enter your account number.");
         return;
     }
-    if (isNaN(cashOutAmount) || cashOutAmount <= 0) {
+    if (isNaN(cashOutAmount) || cashOutAmount <= 0 || cashOutAmount > balance) {
         alert("⚠️ Please enter a valid amount.");
         return;
     }
@@ -136,7 +138,6 @@ document.getElementById('withdraw-cash-out-from-btn').addEventListener('click', 
         return;
     }
     if (cashOutPin === 1234) {
-        const balance = getNumberValueFromInnerText('current-balance');
         const newBalance = balance - cashOutAmount;
         document.getElementById('current-balance').innerText = newBalance;
 
@@ -222,12 +223,13 @@ document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
     const number = getValueFromInputFild('input-number-transfer-money-form');
     const amount = getNumberValueFromInputFild('input-amount-transfer-money-form');
     const pin = getNumberValueFromInputFild('input-pin-transfer-money-form');
+    const balance = getNumberValueFromInnerText('current-balance');
 
     if (!number) {
         alert("⚠️ Please enter your account number.");
         return;
     }
-    if (isNaN(amount) || amount <= 0) {
+    if (isNaN(amount) || amount <= 0 || amount > balance) {
         alert("⚠️ Please enter a valid amount.");
         return;
     }
@@ -236,7 +238,6 @@ document.getElementById('sent-Money-from-btn').addEventListener('click', () => {
         return;
     }
     if (pin === 1234) {
-        const balance = getNumberValueFromInnerText('current-balance');
         const newBalance = balance - amount;
         document.getElementById('current-balance').innerText = newBalance;
 
@@ -414,6 +415,8 @@ document.getElementById('paybill-from-btn').addEventListener('click', (event) =>
     const accountNumber = getValueFromInputFild('input-number-paybill-form');
     const amount = getNumberValueFromInputFild('input-amount-paybill-form');
     const pin = getNumberValueFromInputFild('input-pin-paybill-form');
+    const balance = getNumberValueFromInnerText('current-balance');
+
 
     if (!selectedBank || selectedBank === "Select bank") {
         alert("⚠️ Please select a valid bank.");
@@ -423,7 +426,7 @@ document.getElementById('paybill-from-btn').addEventListener('click', (event) =>
         alert("⚠️ Please enter your account number.");
         return;
     }
-    if (isNaN(amount) || amount <= 0) {
+    if (isNaN(amount) || amount <= 0 || amount > balance) {
         alert("⚠️ Please enter a valid amount.");
         return;
     }
@@ -434,7 +437,6 @@ document.getElementById('paybill-from-btn').addEventListener('click', (event) =>
 
 
     // get abailable balance 
-    const balance = getNumberValueFromInnerText('current-balance');
     if (pin === 1234) {
         const newBalance = balance - amount;
         document.getElementById('current-balance').innerText = newBalance;
@@ -511,7 +513,7 @@ document.getElementById('paybill-from-btn').addEventListener('click', (event) =>
         removePaybillModalData = () => {
             document.getElementById('pay-bill-modal-container').removeChild(modalDiv);
         }
-                document.getElementById('no-transaction').classList.add('hidden')
+        document.getElementById('no-transaction').classList.add('hidden')
 
     } else {
         alert("invalid pin ");
