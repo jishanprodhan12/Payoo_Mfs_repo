@@ -491,7 +491,7 @@ document.getElementById('paybill-from-btn').addEventListener('click', (event) =>
                         <!-- title and time  -->
                         <div class="flex  flex-col gap-2">
                             <span>
-                                <span class ="font-bold">Add Money </span> </br>
+                                <span class ="font-bold">Pay bill </span> </br>
                                 Bank Name : ${selectedBank} </br>
                                 Biller Account Number : ${accountNumber} </br>
                                 Amount to pay :  ${amount} tk </br>
